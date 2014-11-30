@@ -1,0 +1,18 @@
+<h1>Todo List!</h1>
+<div ng-app="app">
+  <div ng-controller="todoCtrl">
+
+    <input ng-model="newTask">
+    <button ng-click="addTask(newTask)">Add Task</button>
+
+    <ul>
+      <li ng-repeat="task in tasks" ng-click="toggleTask(task)" ng-class="{completed: task.completed}">{{ task.name }}</li>
+    </ul>
+
+    <h5>{{ numberOfIncompleteTasks() }} items left</h5>
+
+    <button ng-click="removeCompletedTasks()">Clear Completed Tasks</button>
+
+  </div>
+</div>
+
