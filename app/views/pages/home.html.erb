@@ -2,7 +2,18 @@
 <div ng-app="app">
   <div ng-controller="todoCtrl">
 
+    <input ng-model="newTask">
+    <button ng-click="addTask(newTask)">Add Task</button>
+
+    <div id="tasks">
+      <h2>Tasks:</h2>
+      <ul>
+        <li ng-repeat="task in tasks" ng-click="toggleComplete(task)" ng-class="{ completed: task.completed }">{{ task.name }}</li>
+      </ul>
+      <p>Tasks remaining: {{ numberOfIncompleteTasks() }}</p>
+    </div>
     
+    <button ng-click="deleteCompletedTasks()">Delete completed tasks</button>
 
   </div>
 </div>
