@@ -25,10 +25,16 @@
     };
 
     $scope.removeCompletedTasks = function() {
+      var completedTasks = [];
+
       for(var i = 0; i < $scope.tasks.length; i++) {
         if($scope.tasks[i].completed) {
-          $scope.tasks.splice(i, 1);
+          completedTasks.push($scope.tasks[i]);
         }
+      }
+        
+      for(var i = 0; i < completedTasks.length; i++) {
+        $scope.tasks.splice($scope.tasks.indexOf(completedTasks[i]), 1);
       }
     };
 
